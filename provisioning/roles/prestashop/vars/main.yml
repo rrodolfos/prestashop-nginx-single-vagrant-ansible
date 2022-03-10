@@ -1,0 +1,24 @@
+---
+prestashop_path: /var/www/prestashop
+prestashop_domain: prestashop.local
+prestashop_db_server: 127.0.0.1
+prestashop_db_name: prestashop
+prestashop_db_user: prestashop
+prestashop_db_password: prestashop
+prestashop_email: john.doe@foo.foo
+prestashop_timezone: Europe/Madrid
+prestashop_country: es
+prestashop_fixtures: 1
+prestashop_admin_dir: admin56
+prestashop_installer_git_url: https://github.com/PrestaShop/PrestaShop/releases/download/1.7.8.4/prestashop_1.7.8.4.zip
+nginx_user: www-data
+nginx_group: www-data
+mysql_socket: /var/run/mysqld/mysqld.sock
+prestashop_post_install_cleaning:
+  - "{{ prestashop_path }}/install"
+  - "{{ prestashop_path }}/docs"
+  - "{{ prestashop_path }}/LICENSES"
+  - "{{ prestashop_path }}/INSTALL.txt"
+  - "{{ prestashop_path }}/installer-git"
+  - "{{ prestashop_path }}/admin"
+

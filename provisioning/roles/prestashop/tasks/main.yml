@@ -1,0 +1,54 @@
+- name: '[prestashop role] Install openssl'
+  apt:
+    pkg:
+    - openssl
+    state: present
+    update_cache: yes
+
+- name: '[prestashop role] Install php7.4'
+  apt:
+    pkg:
+    - php7.4
+    - php7.4-fpm
+    - php7.4-curl
+    - php7.4-dom
+    - php7.4-fileinfo
+    - php7.4-gd
+    - php7.4-iconv
+    - php7.4-intl
+    - php7.4-json
+    - php7.4-mbstring
+    - php7.4-pdo
+    - php7.4-pdo-mysql
+    - php7.4-simplexml
+    - php7.4-zip
+    state: present
+    update_cache: yes
+
+- name: '[prestashop role] Install mariadb-server-10.5'
+  apt:
+    pkg:
+    - mariadb-server-10.5
+    state: present
+    update_cache: yes
+  notify:
+    - '[prestashop role] Create prestashop database'
+    - '[prestashop role] Create database user prestashop with all prestashop database privileges'
+
+- name: '[prestashop role] Install nginx'
+  apt:
+    pkg:
+    - nginx
+    state: present
+    update_cache: yes
+  notify:
+    - '[prestashop role] Create prestashop directory'
+    - '[prestashop role] Download prestashop installer from git - http'
+    - '[prestashop role] Extract prestashop into prestashop directory'
+    - '[prestashop role] Rename prestashop admin directory'
+    - '[prestashop role] Copy prestashop nginx configuration to /etc/nginx/sites-available'
+    - '[prestashop role] Enable prestashop nginx configuration to /etc/nginx/sites-enabled'
+    - '[prestashop role] Clean prestashop post install files'
+
+- debug:
+    msg: "[prestashop role] Prestashop url address: http://{{ prestashop_domain }}"

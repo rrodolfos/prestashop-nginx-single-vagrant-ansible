@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  roles:
+  - common
+
+- hosts: prestashop
+  become: true
+  roles:
+  - prestashop
+  
