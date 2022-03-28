@@ -44,7 +44,7 @@ VM machine definition as follow:
     - 192.168.33.13 VM ip address
 
 ## Architecture
-![Architecture Diagram](https://rrodolfos.github.io/posts/ansible_prestashop_single/ansible_prestashop_single_architecture.webp "Architecture Diagram")
+![Architecture Diagram](https://raw.githubusercontent.com/rrodolfos/prestashop-nginx-single-vagrant-ansible/main/architecture/prestashop_single.webp "Architecture Diagram")
 
 ## How to build it
 
